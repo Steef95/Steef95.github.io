@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>House Café</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f4f1ea;
+      color: #2f3e2f;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: url('https://via.placeholder.com/1200x600') center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    nav {
+      background: #2f5d50;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.6s;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .updates {
+      background: #e6ede6;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .menu div {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 280px;
+      height: 200px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .social {
+      text-align: center;
+    }
+
+    .social a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background: #6b4f3b;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2f5d50;
+      color: white;
+    }
+
+    @media (max-width: 700px) {
+      .menu {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>House Café</h1>
+  <p>Earthy flavours. Modern comfort.</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#updates">Updates</a>
+  <a href="#menu">Menu</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#visit">Visit</a>
+</nav>
+
+<section id="about">
+  <h2>Our Story</h2>
+  <p>
+    House Café is a space built around quality coffee, seasonal flavours,
+    and a calm, natural atmosphere. We focus on simplicity, warmth,
+    and creating a place that feels like home.
+  </p>
+</section>
+
+<section id="updates" class="updates">
+  <h2>Latest Updates</h2>
+  <p>🌿 New spring drinks now available</p>
+  <p>☕ Fresh beans just arrived</p>
+  <p>🥐 Baked fresh every morning</p>
+</section>
+
+<section id="menu">
+  <h2>Menu Highlights</h2>
+  <div class="menu">
+    <div>
+      <strong>Espresso</strong><br>Rich & bold
+    </div>
+    <div>
+      <strong>Cappuccino</strong><br>Smooth & creamy
+    </div>
+    <div>
+      <strong>Matcha Latte</strong><br>Earthy & fresh
+    </div>
+    <div>
+      <strong>Homemade Croissants</strong><br>Buttery & warm
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/400x300">
+    <img src="https://via.placeholder.com/400x300">
+    <img src="https://via.placeholder.com/400x300">
+  </div>
+</section>
+
+<section>
+  <h2>Instagram</h2>
+  <!-- Instagram embed (simple version) -->
+  <iframe src="https://www.instagram.com/housecafecz/embed" height="400"></iframe>
+</section>
+
+<section id="visit">
+  <h2>Visit Us</h2>
+
+  <p><strong>Opening Hours</strong><br>
+  Mon–Fri: 8:00 – 18:00<br>
+  Sat–Sun: 9:00 – 16:00</p>
+
+  <!-- Google Maps embed -->
+  <iframe 
+    src="https://maps.google.com/maps?q=teplice&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+    height="300">
+  </iframe>
+
+  <div class="social">
+    <a href="https://www.instagram.com/housecafecz/" target="_blank">Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 House Café</p>
+</footer>
+
+<script>
+  // Simple scroll animation
+  const sections = document.querySelectorAll("section");
+
+  window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        sec.classList.add("visible");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
